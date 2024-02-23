@@ -29,6 +29,7 @@ int remove_item(buffer_item *item) {
 	bufferHead = (bufferHead + 1) % (BUFFER_SIZE + 1);
 	pthread_mutex_unlock (&lock);
 	sem_post(&empty);
+	
 	return 0;
 }
 
