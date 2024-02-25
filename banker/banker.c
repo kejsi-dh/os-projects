@@ -50,13 +50,15 @@ int request_resources(int customer, int request[NUMBER_OF_RESOURCES]) {
 	int error = 0;
 	for(int i = 0; i != NUMBER_OF_RESOURCES; i++) {
 		if(request[i] < 0 || request[i] > need[customer][i]) {
-			printf("Numer jo i vlefshem burimesh: <klient: %d, burime: %d, need: %d, per kerkim: %d>\n", \
-        customer, i, need [customer][i], request[i]);
+			printf("Numer jo i vlefshem burimesh: \
+				<klient: %d, burime: %d, need: %d, per kerkim: %d>\n", \
+				customer, i, need [customer][i], request[i]);
 			error = -1;
 		}
 		if(request[i] > available[i]) {
-			printf("Burime te pamjaftueshme: <klient: %d, burime: %d, available: %d, per kerkim: %d>\n", \
-        customer, i, available[i], request[i]);
+			printf("Burime te pamjaftueshme: \
+				<klient: %d, burime: %d, available: %d, per kerkim: %d>\n", \
+				customer, i, available[i], request[i]);
 			error = -2;
 		}
 		if(error != 0) {
@@ -91,8 +93,9 @@ int release_resources(int customer, int release[NUMBER_OF_CUSTOMERS]) {
 	}
 	for(int i = 0; i != NUMBER_OF_RESOURCES; i++) {
 		if(release[i] < 0 || release[i] > allocation[customer][i]) {
-			printf("Numer i pavlefshem burimesh: <klient: %d, burime: %d, per tu alokuar: %d, per tu leshuar: %d>\n", \
-        customer, i, allocation[customer][i], release[i]);
+			printf("Numer i pavlefshem burimesh: \
+				<klient: %d, burime: %d, per tu alokuar: %d, per tu leshuar: %d>\n", \
+				customer, i, allocation[customer][i], release[i]);
 			while(i--) {
 				allocation[customer][i-1] += release [i-1];
 				available[i] -= release [i];
